@@ -351,3 +351,30 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", animateOnScroll);
     animateOnScroll(); // Run once on page load
 });
+
+
+
+// vision -Mission
+
+// Function to check if element is in viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.bottom >= 0
+        );
+    }
+
+    // Function to handle scroll animations
+    function scrollAnimation() {
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => {
+            if (isInViewport(el)) {
+                el.classList.add('active');
+            }
+        });
+    }
+
+    // Run on scroll and page load
+    window.addEventListener('scroll', scrollAnimation);
+    window.addEventListener('load', scrollAnimation);
