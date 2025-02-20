@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TripBoss</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- fonts -->
+    <link rel="stylesheet" href="font/fonts.css">
+    <!-- normalize css -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/utility.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <!-- navbar  -->
+    <nav class="navbar">
+        <div class="container flex">
+            <a href="index.html" class="site-brand">
+                Leo7<span>Pride</span>
+            </a>
+
+            <button type="button" id="navbar-show-btn" class="flex">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div id="navbar-collapse">
+                <button type="button" id="navbar-close-btn" class="flex">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="packages.html" class="nav-link">Packages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- end of navbar  -->
+
+    <!-- Header -->
+    <header class="flex header-sm">
+        <!-- Video Background -->
+        <video autoplay muted loop id="headerVideo">
+            <source src="videos/F.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Dark Overlay -->
+        <div class="overlay"></div>
+
+        <div class="container">
+            <div class="header-title">
+                <h1>About</h1>
+                <p>We Are More Than Just Travel – We’re Your Guide to the World !</p>
+            </div>
+        </div>
+    </header>
+    <!-- Header -->s
+
+    <!-- about section -->
+    <section id="about" class="py-4">
+        <div class="container">
+            <div class="title-wrap">
+                <span class="sm-title">things to know about us</span>
+                <h2 class="lg-title">our story</h2>
+            </div>
+
+            <div class="about-row">
+                <div class="about-left my-2">
+                    <img src="images/about-img.jpg" alt="about img">
+                </div>
+                <div class="about-right">
+                    <h2>16 Years of Experience</h2>
+                    <p class="text"> With years of expertise in the travel industry, we take pride in offering authentic, affordable, and unforgettable experiences tailored to meet the unique preferences of our clients. </p>
+                    <p class="text">From exploring the serene backwaters of Kerala to witnessing the grandeur of Rajasthan’s palaces, from spiritual journeys in Varanasi to thrilling Himalayan treks, we ensure that every journey is seamless and extraordinary.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of about section -->
+
+    <!-- Vision & Mission Section -->
+    <!-- Vision & Mission Section -->
+    <section id="vision-mission" class="py-4">
+        <div class="container">
+            <div class="title-wrap">
+                <h2 class="lg-title">Our Vision</h2>
+            </div>
+
+            <div class="vision-mission-row">
+                <div class="vision-mission-text hidden left-slide">
+                    <h2>15 Years of Excellence</h2>
+                    <p class="text">Our vision is to become the leading tour and travel company in India, renowned for
+                        our expertise, passion, and commitment to delivering exceptional travel experiences.</p>
+                    <p class="text">We aim to connect travelers with the heart and soul of India, while promoting
+                        sustainable tourism practices and supporting local communities.</p>
+                </div>
+                <div class="vision-mission-image hidden right-slide">
+                    <img src="images/Vision.jpg" alt="Vision">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- Mission Section -->
+    <!-- Mission Section -->
+    <section id="mission" class="py-4">
+        <div class="container">
+            <div class="title-wrap">
+                <h2 class="lg-title">Our Mission</h2>
+            </div>
+
+            <div class="mission-row">
+                <div class="mission-image hidden left-slide">
+                    <img src="images/Mission.jpg" alt="Our Mission">
+                </div>
+                <div class="mission-text hidden right-slide">
+                    <h2>Driven by Purpose</h2>
+                    <p class="text">We aim to inspire, innovate, and lead with integrity in everything we do. Our
+                        commitment to excellence drives us forward.</p>
+                    <p class="text">From small beginnings to big achievements, our mission is to create meaningful
+                        impact through passion and dedication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- facts section -->
+    <section id="facts" class="py-4 flex">
+        <div class="container">
+            <div class='title-wrap'>
+                <span class="sm-title">know some facts about our agency</span>
+                <h2 class="lg-title">fun facts</h2>
+            </div>
+
+            <div class="facts-row">
+                <div class="facts-item">
+                    <span class="fas fa-camera-retro facts-icon"></span>
+                    <div class="facts-info">
+                        <strong>1220</strong>
+                        <p class="text">photos taken</p>
+                    </div>
+                </div>
+
+                <div class="facts-item">
+                    <span class="fas fa-umbrella-beach  facts-icon"></span>
+                    <div class="facts-info">
+                        <strong>50</strong>
+                        <p class="text">beaches visited</p>
+                    </div>
+                </div>
+
+                <div class="facts-item">
+                    <span class="fas fa-mountain facts-icon"></span>
+                    <div class="facts-info">
+                        <strong>4</strong>
+                        <p class="text">mountains climbed</p>
+                    </div>
+                </div>
+
+                <div class="facts-item">
+                    <span class="fas fa-ship facts-icon"></span>
+                    <div class="facts-info">
+                        <strong>12</strong>
+                        <p class="text">cruises organized</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of facts section -->
+
+
+    <!-- footer -->
+    <footer class="py-4">
+        <div class="container footer-row">
+            <div class="footer-item">
+                <a href="index.html" class="site-brand">
+                    Leo7<span>Pride</span>
+                </a>
+                <p class="text">At Leo7Pride, we craft journeys that inspire, educate, and create lasting memories. Whether you travel solo or with loved ones, embark on experiences that redefine the way you see the world.
+
+                    🌍 Discover • Experience • Connect
+                    Let’s make your travel dreams a reality!</p>
+            </div>
+
+            <div class="footer-item">
+                <h2>Follow us on: </h2>
+                <ul class="social-links">
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-google-plus"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-item">
+                <h2>Popular Places:</h2>
+                <ul>
+                    <li><a href="#">Kerala</a></li>
+                    <li><a href="#">Kashmir</a></li>
+                    <li><a href="#">Ladakh</a></li>
+                    <li><a href="#">Mysore</a></li>
+                    <li><a href="#">Jaipur</a></li>
+                </ul>
+            </div>
+
+            <div class="subscribe-form footer-item">
+                <h2>Subscribe for Newsletter!</h2>
+                <form class="flex">
+                    <input type="email" placeholder="Enter Email" class="form-control">
+                    <input type="submit" class="btn" value="Subscribe">
+                </form>
+            </div>
+        </div>
+    </footer>
+    <!-- end of footer -->
+
+    <!-- js -->
+    <script src="js/script.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>

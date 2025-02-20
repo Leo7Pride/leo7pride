@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Leo7Pride</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- font awesome cdn -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- fonts -->
+        <link rel = "stylesheet" href = "font/fonts.css">
+        <!-- normalize css -->
+        <link rel = "stylesheet" href = "css/normalize.css">
+        <!-- custom css -->
+        <link rel = "stylesheet" href = "css/utility.css">
+        <link rel = "stylesheet" href = "css/style.css">
+        <link rel = "stylesheet" href = "css/responsive.css">
+    </head>
+    <body>
+        <!-- navbar  -->
+        <nav class = "navbar">
+            <div class = "container flex">
+                <a href = "index.html" class = "site-brand">
+                    Leo7<span>Pride</span>
+                </a>
+
+                <button type = "button" id = "navbar-show-btn" class = "flex">
+                    <i class = "fas fa-bars"></i>
+                </button>
+                <div id = "navbar-collapse">
+                    <button type = "button" id = "navbar-close-btn" class = "flex">
+                        <i class = "fas fa-times"></i>
+                    </button>
+                    <ul class = "navbar-nav">
+                        <li class = "nav-item">
+                            <a href = "index.html" class = "nav-link">Home</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a href = "about.html" class = "nav-link">About</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a href = "packages.html" class = "nav-link">Package</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a href = "gallery.html" class = "nav-link">Gallery</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a href = "contact.html" class = "nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- end of navbar  -->
+
+   <!-- Header -->
+   <header class="flex header-sm">
+    <!-- Video Background -->
+    <video autoplay muted loop id="headerVideo">
+        <source src="videos/Contact_Us.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Dark Overlay -->
+    <div class="overlay"></div>
+
+    <div class="container">
+        <div class="header-title">
+            <h1>Contact Us</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus rerum maxime enim odit illum in
+                molestias beatae doloremque, ratione optio.</p>
+        </div>
+    </div>
+</header>
+<!-- Header -->
+     <!-- Contact Section -->
+<section id="contact" class="py-4">
+    <div class="container">
+        <div class="title-wrap">
+            <span class="sm-title">Get in touch with us</span>
+            <h2 class="lg-title">Contact Us</h2>
+        </div>
+
+        <div class="contact-row">
+            <div class="contact-left">
+                <form class="contact-form" id="contact-form" action="https://formsubmit.co/YOUR_EMAIL" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+            
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                    <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                    <textarea rows="4" name="message" class="form-control" placeholder="Your Message" style="resize: none;" required></textarea>
+            
+                    <button type="submit" class="btn">Send Message</button>
+                    <p id="status-message"></p>
+                </form>
+            </div>
+             
+
+            <div class="contact-right my-2">
+                <div class="contact-item">
+                    <span class="contact-icon flex">
+                        <i class="fa fa-phone-alt"></i>
+                    </span>
+                    <div>
+                        <span>Phone</span>
+                        <p class="text">+91 95945 53536</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon flex">
+                        <i class="fa fa-map-marked-alt"></i>
+                    </span>
+                    <div>
+                        <span>Address</span>
+                        <p class="text"> F.No:303 Agrima Apartment govind prakash, <br>Sra opp traun utkarsh school <br> gavanpada road , mulund east mumbai 400081</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon flex">
+                        <i class="fa fa-envelope"></i>
+                    </span>
+                    <div>
+                        <span>Email</span>
+                        <p class="text">info@leo7pride.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="script.js"></script>
+
+<!-- end of contact section -->
+
+
+        <!-- footer -->
+        <footer class = "py-4">
+            <div class = "container footer-row">
+                <div class = "footer-item">
+                    <a href = "index.html" class = "site-brand">
+                        Leo7<span>Pride</span>
+                    </a>
+                    <p class = "text">At Leo7Pride, we craft journeys that inspire, educate, and create lasting memories. Whether you travel solo or with loved ones, embark on experiences that redefine the way you see the world.
+
+                        🌍 Discover • Experience • Connect
+                        Let’s make your travel dreams a reality!</p>
+                </div>
+
+                <div class = "footer-item">
+                    <h2>Follow us on: </h2>
+                    <ul class = "social-links">
+                        <li>
+                            <a href = "#">
+                                <i class = "fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href = "#">
+                                <i class = "fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href = "#">
+                                <i class = "fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href = "#">
+                                <i class = "fab fa-pinterest"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href = "#">
+                                <i class = "fab fa-google-plus"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class = "footer-item">
+                    <h2>Popular Places:</h2>
+                    <ul>
+                        <li><a href="#">Kerala</a></li>
+                    <li><a href="#">Kashmir</a></li>
+                    <li><a href="#">Ladakh</a></li>
+                    <li><a href="#">Mysore</a></li>
+                    <li><a href="#">Jaipur</a></li>
+                    </ul>
+                </div>
+
+                <div class = "subscribe-form footer-item">
+                    <h2>Subscribe for Newsletter!</h2>
+                    <form class = "flex">
+                        <input type = "email" placeholder="Enter Email" class = "form-control">
+                        <input type = "submit" class = "btn" value = "Subscribe">
+                    </form>
+                </div>
+            </div>
+        </footer>
+        <!-- end of footer -->
+
+        <!-- js -->
+        <script src = "js/script.js"></script>
+        <script>
+            
+        </script>
+    </body>
+</html>
