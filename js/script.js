@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //     // Define images for each gallery item
         //     const imageSets = [
         //         // Images for gallery item 1
-        //         ["images/gal10.jpeg", "images/gal1.jpeg", "images/gal2.jpeg", "images/gal3.jpeg", "images/gal4.jpeg"],
+        //         ["images/J&K/gal15.jpeg", "images/J&K/gal16.jpeg", "images/J&K/gal17.jpeg", "images/J&K/gal18.jpeg", "images/J&K/gal19.jpeg"],
         
         //         // Images for gallery item 2
         //         ["images/gal5.jpeg", "images/gal6.jpeg", "images/gal7.jpeg", "images/gal8.jpeg", "images/gal9.jpeg"]
