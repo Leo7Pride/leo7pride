@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //     // Define images for each gallery item
         //     const imageSets = [
         //         // Images for gallery item 1
-        //         ["images/J&K/gal15.jpeg", "images/J&K/gal16.jpeg", "images/J&K/gal17.jpeg", "images/J&K/gal18.jpeg", "images/J&K/gal19.jpeg"],
+        //         ["images/gal10.jpeg", "images/gal1.jpeg", "images/gal2.jpeg", "images/gal3.jpeg", "images/gal4.jpeg"],
         
         //         // Images for gallery item 2
         //         ["images/gal5.jpeg", "images/gal6.jpeg", "images/gal7.jpeg", "images/gal8.jpeg", "images/gal9.jpeg"]
@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let currentImageSet = [];
             let autoPlayInterval;
         
-               // Define images for each gallery item
+            // Define images for each gallery item
             const imageSets = [
                 // Images for gallery item 1
                 ["images/J&K/gal15.jpeg", "images/J&K/gal16.jpeg", "images/J&K/gal18.jpeg", "images/J&K/gal18.jpeg", "images/J&K/gal19.jpeg"],
@@ -351,30 +351,3 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", animateOnScroll);
     animateOnScroll(); // Run once on page load
 });
-
-
-
-// vision -Mission
-
-// Function to check if element is in viewport
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.bottom >= 0
-        );
-    }
-
-    // Function to handle scroll animations
-    function scrollAnimation() {
-        const hiddenElements = document.querySelectorAll('.hidden');
-        hiddenElements.forEach((el) => {
-            if (isInViewport(el)) {
-                el.classList.add('active');
-            }
-        });
-    }
-
-    // Run on scroll and page load
-    window.addEventListener('scroll', scrollAnimation);
-    window.addEventListener('load', scrollAnimation);
