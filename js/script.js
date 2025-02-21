@@ -220,19 +220,19 @@ document.addEventListener("DOMContentLoaded", function () {
             let currentImageSet = [];
             let autoPlayInterval;
         
-            // Define images for each gallery item
+               // Define images for each gallery item
             const imageSets = [
                 // Images for gallery item 1
-                ["images/J&K/gal15.jpeg", "images/J&K/gal16.jpeg", "images/J&K/gal17.jpeg", "images/J&K/gal18.jpeg", "images/J&K/gal19.jpeg"],
+                ["images/J&K/gal15.jpeg", "images/J&K/gal16.jpeg", "images/J&K/gal18.jpeg", "images/J&K/gal18.jpeg", "images/J&K/gal19.jpeg"],
         
                 // Images for gallery item 2
-                ["images/Mumbai/gal17.jpeg", "images/Mumbai/gal22.jpeg"", "images/Nashik/gal2.jpeg", "images/Nashik/gal3.jpeg", "images/gal9.jpeg"],
+                ["images/Mumbai/gal17.jpeg", "images/Mumbai/gal22.jpeg", "images/Nashik/gal2.jpeg", "images/Nashik/gal3.jpeg", "images/Mumbai/gal22.jpeg"],
         
                 // Images for gallery item 3
                 ["images/Raichur/gal13.jpeg", "images/Raichur/gal14.jpeg", "images/Raichur/gal4.jpeg", "images/Tirupati/gal1.jpeg", "images/Tirupati/gal10.jpeg"],
         
                 // Images for gallery item 4
-                ["images/Tirupati/gal12.jpeg", "images/gal18.jpeg", "images/gal19.jpeg", "images/gal20.jpeg", "images/gal21.jpeg"]
+                ["images/Tirupati/gal12.jpeg", "images/Raichur/gal13.jpeg", "images/Raichur/gal14.jpeg", "images/Nashik/gal2.jpeg"]
                 
                 // Add more sets here as needed
             ];
