@@ -359,18 +359,18 @@ document.addEventListener("DOMContentLoaded", function () {
 // email using SMTP JS
 
 document.getElementById("contact-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevents the form from refreshing the page
+    event.preventDefault(); // Prevent default form submission
 
-    let parms = {
+    let params = {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
         message: document.getElementById("message").value,
     };
 
-    emailjs.send("service_tdmhzkv", "template_cv0yhrh", parms)
+    emailjs.send("service_tdmhzkv", "template_cv0yhrh", params)
     .then(() => {
         document.getElementById("status-message").innerText = "Email Sent Successfully!";
-        document.getElementById("contact-form").reset(); // Reset the form
+        document.getElementById("contact-form").reset(); // Reset form after sending
     })
     .catch((error) => {
         document.getElementById("status-message").innerText = "Failed to send email. Try again.";
