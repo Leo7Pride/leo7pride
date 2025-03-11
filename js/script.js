@@ -76,28 +76,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-   document.querySelector('form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const formData = new FormData(this);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                date: formData.get('date'),
-                timestamp: new Date().toLocaleString()
-            };
-            fetch('save_form.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            }).then(response => response.text()).then(result => {
-                alert('Form submitted successfully!');
-            }).catch(error => {
-                console.error('Error:', error);
-            });
-        });
+   // document.querySelector('form').addEventListener('submit', function(event) {
+   //          event.preventDefault();
+   //          const formData = new FormData(this);
+   //          const data = {
+   //              name: formData.get('name'),
+   //              email: formData.get('email'),
+   //              phone: formData.get('phone'),
+   //              date: formData.get('date'),
+   //              timestamp: new Date().toLocaleString()
+   //          };
+   //          fetch('save_form.php', {
+   //              method: 'POST',
+   //              headers: {
+   //                  'Content-Type': 'application/json'
+   //              },
+   //              body: JSON.stringify(data)
+   //          }).then(response => response.text()).then(result => {
+   //              alert('Form submitted successfully!');
+   //          }).catch(error => {
+   //              console.error('Error:', error);
+   //          });
+   //      });
  
 
         document.addEventListener("DOMContentLoaded", function () {
