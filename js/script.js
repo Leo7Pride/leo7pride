@@ -351,3 +351,29 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", animateOnScroll);
     animateOnScroll(); // Run once on page load
 });
+
+
+
+
+
+// email using SMTP JS
+
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevents the form from refreshing the page
+
+    let parms = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value,
+    };
+
+    emailjs.send("service_tdmhzkv", "template_cv0yhrh", parms)
+    .then(() => {
+        document.getElementById("status-message").innerText = "Email Sent Successfully!";
+        document.getElementById("contact-form").reset(); // Reset the form
+    })
+    .catch((error) => {
+        document.getElementById("status-message").innerText = "Failed to send email. Try again.";
+        console.error("Email sending failed:", error);
+    });
+});
