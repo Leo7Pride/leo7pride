@@ -47,6 +47,13 @@
     opacity: 1;
 }
 
+img {
+    width: 100%;
+    display: block;
+    height: 80px;
+    width: 80px;
+}
+
 /* navbar side menu */
 #navbar-collapse {
     background-color: var(--green);
