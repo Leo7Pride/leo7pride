@@ -14,9 +14,9 @@
     z-index: 999;
 }
 
-.navbar img {
-    height: 110px;
-    width: 110px;
+.navbar img{
+    height: 85px;
+    width: 85px;
 }
 
 .navbar .container {
@@ -51,8 +51,6 @@
 #navbar-show-btn:hover {
     opacity: 1;
 }
-
-
 
 /* navbar side menu */
 #navbar-collapse {
@@ -119,7 +117,7 @@
     opacity: 0.8;
 }
 
-/* header */
+/* Header */
 header {
     position: relative;
     min-height: 100vh;
@@ -130,11 +128,11 @@ header {
     text-align: center;
     color: #fff;
     overflow: hidden;
-    background: url('C:\Users\Hp\Desktop\tripboss_travelagency_site_html_css_js-master\images\Varanasi.jpg') no-repeat center center/cover;
+    background: url('images/shirdi_temple2.jpg') no-repeat center center/cover;
     background-size: cover;
-
 }
 
+/* Background Video */
 #headerVideo {
     position: absolute;
     top: 0;
@@ -142,19 +140,24 @@ header {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -2;
+    z-index: -2; /* Ensures video stays behind everything */
 }
 
-header::before {
-    content: "";
+/* Dark Overlay */
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    /* Dark overlay for better text visibility */
-    z-index: -1;
+    background: rgba(0, 0, 0, 0.6); /* 60% opacity for better text visibility */
+    z-index: -1; /* Ensures overlay is above video but below text */
+}
+
+/* Ensures text stays above overlay */
+.container {
+    position: relative;
+    z-index: 10;
 }
 
 .container {
@@ -890,27 +893,21 @@ header.header-sm {
     background: linear-gradient(to bottom, transparent 0%, transparent 18%, rgba(0, 0, 0, 0.8) 99%, rgba(0, 0, 0, 0.8) 100%);
 }
 
-/* Image Styling */
-.gallery-item img {
+/* Common Media Styling */
+.gallery-item img,
+.gallery-item video {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain;
+    object-fit: contain;  /* Maintains aspect ratio */
     transition: var(--trans);
     position: relative;
     z-index: 0;
 }
 
-/* Black Fade for Portrait Images */
-.gallery-item img::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 0.6) 100%);
-    z-index: 1;
+/* Hover Effect - Zoom */
+.gallery-item:hover img,
+.gallery-item:hover video {
+    transform: scale(1.03);
 }
 
 /* Place Name Overlay */
@@ -930,19 +927,12 @@ header.header-sm {
     z-index: 2;
 }
 
-/* Hover Effect - Show Place Name */
 .gallery-item:hover .place-name {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Minimal Zoom Effect */
-.gallery-item:hover img {
-    transform: scale(1.03); /* Subtle zoom */
-}
-
-
-/* img modal box */
+/* Modal Styling */
 #img-modal-box {
     position: fixed;
     top: 0;
@@ -956,67 +946,85 @@ header.header-sm {
     justify-content: center;
 }
 
+/* Common Modal Container */
 #img-modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 80%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 90%;
     max-width: 800px;
+    max-height: 90vh;
 }
 
-#img-modal img {
+/* Media inside Modal */
+#img-modal img, 
+#img-modal video {
     max-width: 100%;
-    height: 100%;
+    max-height: 100%;
     object-fit: contain;
+    border-radius: 8px;
 }
 
+
+/* Play button for videos */
+#img-modal video {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+}
+
+
+/* Buttons */
 #img-modal-box button {
     position: absolute;
     font-size: 1.4rem;
     background-color: #fff;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    -webkit-transition: var(--trans);
-    -o-transition: var(--trans);
-    transition: var(--trans);
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1001;
 }
 
 #img-modal-box button:hover {
     opacity: 0.9;
 }
 
+/* Close Button */
 #modal-close-btn {
-    top: -17.5px;
-    right: -17.5px;
-    z-index: 999;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+/* Navigation Buttons */
+#next-btn,
+#prev-btn {
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
 }
 
 #next-btn {
-    top: 50%;
-    right: 1rem;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    right: 20px;
 }
 
 #prev-btn {
-    top: 50%;
-    left: 1rem;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    left: 20px;
 }
 
 #next-btn:hover,
 #prev-btn:hover {
-    background-color: var(--dark);
+    background-color: #333;
     color: #fff;
 }
+
 
 /* popular section */
 #popular.py-4 {
@@ -1389,335 +1397,388 @@ header.header-sm {
 /* Team Section */
 #team {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
     background-color: #fffcfcc6;
-
 }
-    /* From Uiverse.io by Centered101 */
-    .card {
-        width: 280px;
-        height: 280px;
-        background: white;
-        border-radius: 32px;
-        padding: 3px;
-        position: relative;
-        box-shadow: #604b4a30 0px 70px 30px -50px;
-        transition: all 0.5s ease-in-out;
-    }
 
-    .card .mail {
-        position: absolute;
-        right: 2rem;
-        top: 1.4rem;
-        background: transparent;
-        border: none;
-    }
+/* From Uiverse.io by Centered101 */
+.card {
+    width: 280px;
+    height: 280px;
+    background: white;
+    border-radius: 32px;
+    padding: 3px;
+    position: relative;
+    box-shadow: #604b4a30 0px 70px 30px -50px;
+    transition: all 0.5s ease-in-out;
+}
 
-    .card .mail svg {
-        stroke: #92f1e8;
-        stroke-width: 3px;
-    }
+.card .mail {
+    position: absolute;
+    right: 2rem;
+    top: 1.4rem;
+    background: transparent;
+    border: none;
+}
 
-    .card .mail svg:hover {
-        stroke: #34ccbd;
-    }
+.card .mail svg {
+    stroke: #92f1e8;
+    stroke-width: 3px;
+}
 
-    .card .profile-pic {
-        position: absolute;
-        width: calc(100% - 6px);
-        height: calc(100% - 6px);
-        top: 3px;
-        left: 3px;
-        border-radius: 29px;
-        z-index: 1;
-        border: 0px solid #34ccbd;
-        overflow: hidden;
-        transition: all 0.5s ease-in-out 0.2s, z-index 0.5s ease-in-out 0.2s;
-    }
+.card .mail svg:hover {
+    stroke: #34ccbd;
+}
 
-    .card .profile-pic img {
-        -o-object-fit: cover;
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-        -o-object-position: 0px 0px;
-        object-position: 0px 0px;
-        transition: all 0.5s ease-in-out 0s;
-    }
+.card .profile-pic {
+    position: absolute;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    top: 3px;
+    left: 3px;
+    border-radius: 29px;
+    z-index: 1;
+    border: 0px solid #34ccbd;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out 0.2s, z-index 0.5s ease-in-out 0.2s;
+}
 
-    .card .profile-pic svg {
-        width: 100%;
-        height: 100%;
-        -o-object-fit: cover;
-        object-fit: cover;
-        -o-object-position: 0px 0px;
-        object-position: 0px 0px;
-        transform-origin: 45% 20%;
-        transition: all 0.5s ease-in-out 0s;
-    }
+.card .profile-pic img {
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    -o-object-position: 0px 0px;
+    object-position: 0px 0px;
+    transition: all 0.5s ease-in-out 0s;
+}
 
-    .card .bottom {
-        position: absolute;
-        bottom: 3px;
-        left: 3px;
-        right: 3px;
-        background: #34ccbd;
-        top: 80%;
-        border-radius: 29px;
-        z-index: 2;
-        box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px inset;
-        overflow: hidden;
-        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-    }
+.card .profile-pic svg {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: 0px 0px;
+    object-position: 0px 0px;
+    transform-origin: 45% 20%;
+    transition: all 0.5s ease-in-out 0s;
+}
 
-    .card .bottom .content {
-        position: absolute;
-        bottom: 0;
-        left: 1.5rem;
-        right: 1.5rem;
-        height: 160px;
-    }
+.card .bottom {
+    position: absolute;
+    bottom: 3px;
+    left: 3px;
+    right: 3px;
+    background: #34ccbd;
+    top: 80%;
+    border-radius: 29px;
+    z-index: 2;
+    box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px inset;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+}
 
-    .card .bottom .content .name {
-        display: block;
-        font-size: 1.2rem;
-        color: white;
-        font-weight: bold;
-    }
+.card .bottom .content {
+    position: absolute;
+    bottom: 0;
+    left: 1.5rem;
+    right: 1.5rem;
+    height: 160px;
+}
 
-    .card .bottom .content .about-me {
-        display: block;
-        font-size: 0.9rem;
-        color: white;
-        margin-top: 1rem;
-    }
+.card .bottom .content .name {
+    display: block;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+}
 
-    .card .bottom .bottom-bottom {
-        position: absolute;
-        bottom: 1rem;
-        left: 1.5rem;
-        right: 1.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+.card .bottom .content .about-me {
+    display: block;
+    font-size: 0.9rem;
+    color: white;
+    margin-top: 1rem;
+}
 
-    .card .bottom .bottom-bottom .social-links-container {
-        display: flex;
-        gap: 1rem;
-    }
+.card .bottom .bottom-bottom {
+    position: absolute;
+    bottom: 1rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-    .card .bottom .bottom-bottom .social-links-container svg {
-        height: 20px;
-        fill: white;
-        filter: drop-shadow(0 5px 5px rgba(165, 132, 130, 0.1333333333));
-    }
+.card .bottom .bottom-bottom .social-links-container {
+    display: flex;
+    gap: 1rem;
+}
 
-    .card .bottom .bottom-bottom .social-links-container svg:hover {
-        fill: #0ae4ce;
-        transform: scale(1.2);
-    }
+.card .bottom .bottom-bottom .social-links-container svg {
+    height: 20px;
+    fill: white;
+    filter: drop-shadow(0 5px 5px rgba(165, 132, 130, 0.1333333333));
+}
 
-    .card .bottom .bottom-bottom .button {
-        background: white;
-        color: #000000;
-        border: none;
-        border-radius: 20px;
-        font-size: 0.6rem;
-        padding: 0.4rem 0.6rem;
-        box-shadow: rgba(165, 132, 130, 0.1333333333) 0px 5px 5px 0px;
-    }
+.card .bottom .bottom-bottom .social-links-container svg:hover {
+    fill: #0ae4ce;
+    transform: scale(1.2);
+}
 
-    .card .bottom .bottom-bottom .button:hover {
-        background: #86ece2;
-        color: rgb(0, 0, 0);
-    }
+.card .bottom .bottom-bottom .button {
+    background: white;
+    color: #000000;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.6rem;
+    padding: 0.4rem 0.6rem;
+    box-shadow: rgba(165, 132, 130, 0.1333333333) 0px 5px 5px 0px;
+}
 
-    .card:hover {
-        border-top-left-radius: 55px;
-    }
+.card .bottom .bottom-bottom .button:hover {
+    background: #86ece2;
+    color: rgb(0, 0, 0);
+}
 
-    .card:hover .bottom {
-        top: 20%;
-        border-radius: 80px 29px 29px 29px;
-        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
-    }
+.card:hover {
+    border-top-left-radius: 55px;
+}
 
-    .card:hover .profile-pic {
-        width: 100px;
-        height: 100px;
-        aspect-ratio: 1;
-        top: 10px;
-        left: 10px;
-        border-radius: 50%;
-        z-index: 3;
-        border: 7px solid #34ccbd;
-        box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px;
-        transition: all 0.5s ease-in-out, z-index 0.5s ease-in-out 0.1s;
-    }
+.card:hover .bottom {
+    top: 20%;
+    border-radius: 80px 29px 29px 29px;
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+}
 
-    .card:hover .profile-pic:hover {
-        transform: scale(1.3);
-        border-radius: 0px;
-    }
+.card:hover .profile-pic {
+    width: 100px;
+    height: 100px;
+    aspect-ratio: 1;
+    top: 10px;
+    left: 10px;
+    border-radius: 50%;
+    z-index: 3;
+    border: 7px solid #34ccbd;
+    box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px;
+    transition: all 0.5s ease-in-out, z-index 0.5s ease-in-out 0.1s;
+}
 
-    .card:hover .profile-pic img {
-        transform: scale(1.5);
-        -o-object-position: 0px 25px;
-        object-position: 0px 25px;
-        transition: all 0.5s ease-in-out 0.5s;
-        object-fit: cover; /* Ensure the image covers the circle */
-        object-position: center top; /* Center the face in the circle */
-        transition: all 0.5s ease-in-out 0.5s;
-    }
+.card:hover .profile-pic:hover {
+    transform: scale(1.3);
+    border-radius: 0px;
+}
 
-    .card:hover .profile-pic svg {
-        transform: scale(2.5);
-        transition: all 0.5s ease-in-out 0.5s;
-    }
+.card:hover .profile-pic img {
+    transform: scale(1.5);
+    -o-object-position: 0px 25px;
+    object-position: 0px 25px;
+    transition: all 0.5s ease-in-out 0.5s;
+    object-fit: cover;
+    /* Ensure the image covers the circle */
+    object-position: center top;
+    /* Center the face in the circle */
+    transition: all 0.5s ease-in-out 0.5s;
+}
+
+.card:hover .profile-pic svg {
+    transform: scale(2.5);
+    transition: all 0.5s ease-in-out 0.5s;
+}
+
 /* team section card ends */
 
 
 
-  
-  .team-heading {
+/* General Styles for the Team Section */
+#team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fffcfcc6;
+    padding: 20px; /* Add some padding for better spacing */
+}
+
+/* Styles for the Team Heading */
+.team-heading {
     text-align: center;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1s ease, transform 1s ease;
-  }
-  
-  .team-heading.visible {
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.team-heading.visible {
     opacity: 1;
     transform: translateY(0);
-  }
-  
-  .small-title {
+}
+
+.small-title {
     font-size: 18px;
     color: #555;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 10px;
-  }
-  
-  .main-title {
+}
+
+.main-title {
     font-size: 36px;
     color: #222;
     font-weight: bold;
-  }
-  
+}
 
+/* Styles for the Team Cards */
+.team-cards {
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: space-between; /* Space between cards */
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Optional: limit max width */
+    flex-wrap: nowrap; /* Prevent wrapping on larger screens */
+}
 
+.card {
+    width: 280px; /* Fixed width for cards */
+    margin: 10px; /* Add some margin between cards */
+    background: white;
+    border-radius: 32px;
+    padding: 3px;
+    position: relative;
+    box-shadow: #604b4a30 0px 70px 30px -50px;
+    transition: all 0.5s ease-in-out;
+}
 
-    /* About us ends */
-
-
-
-
-    /* ### CONTACT PAGE ### */
-    /* contact */
-    .contact-form .form-control {
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        color: #000;
-        display: block;
-        margin: 1.6rem auto;
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .team-cards {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center; /* Center align cards */
     }
 
-    .contact-form .btn {
-        display: block;
-        margin: auto;
+    .card {
+        width: 90%; /* Make cards take up more width on smaller screens */
+        margin: 10px 0; /* Add vertical margin */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 28px; /* Smaller font size for mobile */
     }
 
-    .contact-icon {
-        background-color: var(--green);
-        color: #fff;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        margin: 1rem auto;
-        font-size: 2rem;
+    .small-title {
+        font-size: 16px; /* Smaller font size for mobile */
     }
-
-    .contact-item {
-        text-align: center;
-        margin: 3rem 0;
-    }
-
-    .contact-item div span {
-        font-weight: 600;
-        font-family: "Ralway", sans-serif;
-        font-size: 1.2rem;
-        display: block;
-        margin-bottom: 1rem;
-    }
+}
+/* About us ends */
 
 
 
 
+/* ### CONTACT PAGE ### */
+/* contact */
+.contact-form .form-control {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #000;
+    display: block;
+    margin: 1.6rem auto;
+}
 
-    /* From Uiverse.io by mobinkakei */
-    .btn {
-        width: 140px;
-        height: 50px;
-        background: linear-gradient(to top, #1ec6b6, #1ec6b6, #1ec6b6);
-        color: #fff;
-        border-radius: 50px;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        position: relative;
-        box-shadow: 0 15px 30px rgb(30 198 182 / 39%);
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+.contact-form .btn {
+    display: block;
+    margin: auto;
+}
 
-    .btn span {
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: top 0.5s;
-        width: 100%;
-        text-align: center;
-        /* Ensures text remains centered */
-    }
+.contact-icon {
+    background-color: var(--green);
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 1rem auto;
+    font-size: 2rem;
+}
 
-    .btn-text-one,
-    .btn-text-two {
-        position: absolute;
-        width: 100%;
-        left: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* Ensures vertical centering */
-        height: 100%;
-        /* Takes full button height */
-        top: 0;
-        /* Fix position */
-        color: #000000 !important;
-        font-weight: bolder;
-    }
+.contact-item {
+    text-align: center;
+    margin: 3rem 0;
+}
 
-
-    .btn-text-two {
-        top: 100%;
-        /* Initially placed below the button */
-    }
-
-    .btn:hover .btn-text-one {
-        top: -100%;
-        /* Moves up on hover */
-    }
-
-    .btn:hover .btn-text-two {
-        top: 0;
-        /* Moves into view on hover */
-    }
+.contact-item div span {
+    font-weight: 600;
+    font-family: "Ralway", sans-serif;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 1rem;
+}
 
 
 
 
 
-    /* GTT.HTML */
+/* From Uiverse.io by mobinkakei */
+.btn {
+    width: 140px;
+    height: 50px;
+    background: linear-gradient(to top, #1ec6b6, #1ec6b6, #1ec6b6);
+    color: #fff;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 15px 30px rgb(30 198 182 / 39%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn span {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: top 0.5s;
+    width: 100%;
+    text-align: center;
+    /* Ensures text remains centered */
+}
+
+.btn-text-one,
+.btn-text-two {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ensures vertical centering */
+    height: 100%;
+    /* Takes full button height */
+    top: 0;
+    /* Fix position */
+    color: #000000 !important;
+    font-weight: bolder;
+}
+
+
+.btn-text-two {
+    top: 100%;
+    /* Initially placed below the button */
+}
+
+.btn:hover .btn-text-one {
+    top: -100%;
+    /* Moves up on hover */
+}
+
+.btn:hover .btn-text-two {
+    top: 0;
+    /* Moves into view on hover */
+}
+
+
+
+
+
+/* GTT.HTML */
