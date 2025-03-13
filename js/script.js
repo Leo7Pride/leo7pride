@@ -76,28 +76,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-   // document.querySelector('form').addEventListener('submit', function(event) {
-   //          event.preventDefault();
-   //          const formData = new FormData(this);
-   //          const data = {
-   //              name: formData.get('name'),
-   //              email: formData.get('email'),
-   //              phone: formData.get('phone'),
-   //              date: formData.get('date'),
-   //              timestamp: new Date().toLocaleString()
-   //          };
-   //          fetch('save_form.php', {
-   //              method: 'POST',
-   //              headers: {
-   //                  'Content-Type': 'application/json'
-   //              },
-   //              body: JSON.stringify(data)
-   //          }).then(response => response.text()).then(result => {
-   //              alert('Form submitted successfully!');
-   //          }).catch(error => {
-   //              console.error('Error:', error);
-   //          });
-   //      });
+   document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                date: formData.get('date'),
+                timestamp: new Date().toLocaleString()
+            };
+            fetch('save_form.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then(response => response.text()).then(result => {
+                alert('Form submitted successfully!');
+            }).catch(error => {
+                console.error('Error:', error);
+            });
+        });
  
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -203,111 +203,139 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+// document.addEventListener("DOMContentLoaded", function () {
+    const galleryItems = document.querySelectorAll(".gallery-item");
+    const modalBox = document.getElementById("img-modal-box");
+    const modalImg = document.getElementById("modal-img");
+    const modalVideo = document.getElementById("modal-video");
+    const closeModalBtn = document.getElementById("modal-close-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const prevBtn = document.getElementById("prev-btn");
 
-        document.addEventListener("DOMContentLoaded", function () {
-            const galleryItems = document.querySelectorAll(".gallery-item");
-            const modalBox = document.getElementById("img-modal-box");
-            const modalImg = document.getElementById("modal-img");
-            const closeModalBtn = document.getElementById("modal-close-btn");
-            const nextBtn = document.getElementById("next-btn");
-            const prevBtn = document.getElementById("prev-btn");
-        
-            const dotsContainer = document.createElement('div');
-            dotsContainer.id = 'dots';  // Container for dots indicators
-            modalBox.appendChild(dotsContainer);
-        
-            let currentIndex = 0;
-            let currentImageSet = [];
-            let autoPlayInterval;
-        
-            // Define images for each gallery item
-            const imageSets = [
-                // Images for gallery item 1
-                ["images/J&K/gal15.jpeg", "images/J&K/gal16.jpeg", "images/J&K/gal18.jpeg", "images/J&K/gal18.jpeg", "images/J&K/gal19.jpeg"],
-        
-                // Images for gallery item 2
-                ["images/Mumbai/gal17.jpeg", "images/Mumbai/gal22.jpeg", "images/Nashik/gal2.jpeg", "images/Nashik/gal3.jpeg", "images/Mumbai/gal22.jpeg"],
-        
-                // Images for gallery item 3
-                ["images/Raichur/gal13.jpeg", "images/Raichur/gal14.jpeg", "images/Raichur/gal4.jpeg", "images/Tirupati/gal1.jpeg", "images/Tirupati/gal10.jpeg"],
-        
-                // Images for gallery item 4
-                ["images/Tirupati/gal12.jpeg", "images/Raichur/gal13.jpeg", "images/Raichur/gal14.jpeg", "images/Nashik/gal2.jpeg"]
-                
-                // Add more sets here as needed
-            ];
-        
-            // Open modal and show specific image set
-            galleryItems.forEach((item, index) => {
-                item.addEventListener("click", function () {
-                    currentIndex = 0; // Always start from the first image in the set
-                    currentImageSet = imageSets[index]; // Load the correct image set
-                    showImage();
-                });
-            });
-        
-            function showImage() {
-                if (currentImageSet.length > 0) {
-                    modalImg.src = currentImageSet[currentIndex];
-                    updateDots();  // Update the dots according to the current image
-                    modalBox.style.display = "flex";
-                    clearInterval(autoPlayInterval);  // Reset autoplay timer when user interacts
-                    startAutoPlay();  // Start auto-play again
-                }
-            }
-        
-            function updateDots() {
-                // Clear all existing dots
-                dotsContainer.innerHTML = '';
-                
-                // Create dots for the image set
-                currentImageSet.forEach((_, index) => {
-                    const dot = document.createElement('div');
-                    dot.classList.add('dot');
-                    if (index === currentIndex) {
-                        dot.classList.add('active');
-                    }
-                    dot.addEventListener('click', () => {
-                        currentIndex = index;
-                        showImage();
-                    });
-                    dotsContainer.appendChild(dot);
-                });
-            }
-        
-            nextBtn.addEventListener("click", function () {
-                currentIndex = (currentIndex + 1) % currentImageSet.length;
-                showImage();
-            });
-        
-            prevBtn.addEventListener("click", function () {
-                currentIndex = (currentIndex - 1 + currentImageSet.length) % currentImageSet.length;
-                showImage();
-            });
-        
-            closeModalBtn.addEventListener("click", function () {
-                modalBox.style.display = "none";
-                clearInterval(autoPlayInterval);  // Clear auto-play when modal closes
-            });
-        
-            // Close modal on outside click
-            modalBox.addEventListener("click", function (event) {
-                if (event.target === modalBox) {
-                    modalBox.style.display = "none";
-                    clearInterval(autoPlayInterval);  // Clear auto-play when modal closes
-                }
-            });
-        
-            // Auto-play functionality (change image every 3 seconds)
-            function startAutoPlay() {
-                autoPlayInterval = setInterval(() => {
-                    currentIndex = (currentIndex + 1) % currentImageSet.length;
-                    showImage();
-                }, 3000);
-            }
-        
+    const dotsContainer = document.createElement('div');
+    dotsContainer.id = 'dots';
+    modalBox.appendChild(dotsContainer);
+
+    let currentIndex = 0;
+    let currentMediaSet = [];
+    let autoPlayTimeout;
+
+    // Define images/videos for each gallery item
+    const mediaSets = [
+        ["images/J&K/gal15.jpeg", "images/J&K/gal16.jpeg", "images/J&K/gal18.jpeg", "images/J&K/gal19.jpeg"],
+        ["images/Mumbai/gal17.jpeg", "images/Mumbai/gal22.jpeg", "images/Nashik/gal2.jpeg", "images/Nashik/gal3.jpeg"],
+        ["images/Raichur/gal13.jpeg", "images/Raichur/gal14.jpeg", "images/Raichur/gal4.jpeg"],
+        ["images/Tirupati/gal12.jpeg", "images/Raichur/gal13.jpeg", "images/Raichur/gal14.jpeg"],
+        ["videos/bg_vid.mp4", "images/sight/sight_2.jpeg", "images/sight/sight_3.jpeg", "images/IMG_0401.jpg"],
+        ["images/sight/bbb.jpeg", "images/sight/rr.jpeg", "images/sight/rrrrrrrr.jpeg", "images/sight/ccc.jpeg"],
+        ["images/sight/car.jpg", "images/sight/sight_2.jpeg", "images/sight/sight_3.jpeg", "images/IMG_0401.jpg"]
+    ];
+
+    // Open modal and show specific media set
+    galleryItems.forEach((item, index) => {
+        item.addEventListener("click", function () {
+            currentIndex = 0;
+            currentMediaSet = mediaSets[index];
+            showMedia();
         });
-        
+    });
+
+    function showMedia() {
+        if (currentMediaSet.length > 0) {
+            const currentMedia = currentMediaSet[currentIndex];
+
+            if (currentMedia.endsWith(".mp4")) {
+                modalImg.style.display = "none";
+                modalVideo.style.display = "block";
+                modalVideo.src = currentMedia;
+                modalVideo.play();
+
+                // Ensure video completes before moving to the next slide
+                modalVideo.onended = function () {
+                    moveToNextSlide();
+                };
+            } else {
+                modalVideo.style.display = "none";
+                modalImg.style.display = "block";
+                modalImg.src = currentMedia;
+
+                // Reset auto-play timing for images
+                startAutoPlay(3000);
+            }
+
+            updateDots();
+            modalBox.style.display = "flex";
+        }
+    }
+
+    function updateDots() {
+        dotsContainer.innerHTML = '';
+
+        currentMediaSet.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === currentIndex) {
+                dot.classList.add('active');
+            }
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                showMedia();
+            });
+            dotsContainer.appendChild(dot);
+        });
+    }
+
+    nextBtn.addEventListener("click", function () {
+        moveToNextSlide(true);
+    });
+
+    prevBtn.addEventListener("click", function () {
+        currentIndex = (currentIndex - 1 + currentMediaSet.length) % currentMediaSet.length;
+        showMedia();
+    });
+
+    closeModalBtn.addEventListener("click", function () {
+        modalBox.style.display = "none";
+        modalVideo.pause();
+        clearTimeout(autoPlayTimeout);
+    });
+
+    modalBox.addEventListener("click", function (event) {
+        if (event.target === modalBox) {
+            modalBox.style.display = "none";
+            modalVideo.pause();
+            clearTimeout(autoPlayTimeout);
+        }
+    });
+
+    function moveToNextSlide(isManual = false) {
+        currentIndex = (currentIndex + 1) % currentMediaSet.length;
+        showMedia();
+
+        // If user manually clicks Next, clear auto-play timeout
+        if (isManual) {
+            clearTimeout(autoPlayTimeout);
+        }
+    }
+
+    function startAutoPlay(interval) {
+        clearTimeout(autoPlayTimeout);
+        autoPlayTimeout = setTimeout(() => {
+            moveToNextSlide();
+        }, interval);
+    }
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            modalBox.style.display = "none";
+            modalVideo.pause();
+            clearTimeout(autoPlayTimeout);
+        }
+    });
+
+
+
+
 
 // About us sliding
 
@@ -355,22 +383,62 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+// Team JS in about oage
+window.addEventListener('scroll', function() {
+    const heading = document.querySelector('.team-heading');
+    const headingPosition = heading.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.3;
+  
+    if (headingPosition < screenPosition) {
+      heading.classList.add('visible');
+    }
+  });
+  
+
+
+// // Email sending via contact form
+// const form = document.getElementById('contact-form');
+
+// form.addEventListener('submit', async (e) => {
+//     e.preventDefault();
+
+//     const formData = new FormData(form);
+
+//     try {
+//         const response = await fetch("https://formsubmit.co/chhatrapaljaiswal1997@gmail.com", {
+//             method: "POST",
+//             body: formData,
+//         });
+
+//         if (response.ok) {
+//             alert("Message sent successfully!");
+//             form.reset();
+//         } else {
+//             alert("Error sending message.");
+//         }
+//     } catch (error) {
+//         console.error("Error:", error);
+//         alert("There was a problem sending the form.");
+//     }
+// });
+
+
 
 // email using SMTP JS
 
 document.getElementById("contact-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); // Prevents the form from refreshing the page
 
-    let params = {
+    let parms = {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
         message: document.getElementById("message").value,
     };
 
-    emailjs.send("service_tdmhzkv", "template_cv0yhrh", params)
+    emailjs.send("service_tdmhzkv", "template_cv0yhrh", parms)
     .then(() => {
         document.getElementById("status-message").innerText = "Email Sent Successfully!";
-        document.getElementById("contact-form").reset(); // Reset form after sending
+        document.getElementById("contact-form").reset(); // Reset the form
     })
     .catch((error) => {
         document.getElementById("status-message").innerText = "Failed to send email. Try again.";
