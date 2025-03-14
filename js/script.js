@@ -445,3 +445,24 @@ document.getElementById("contact-form").addEventListener("submit", function(even
         console.error("Email sending failed:", error);
     });
 });
+
+
+
+ // Close Popup
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+        document.body.classList.remove('blur-active'); // Remove Blur
+      }
+  
+      // Close Popup via ESC Key
+      document.addEventListener('keydown', function (event) {
+        if (event.key === "Escape") {
+          closePopup();
+        }
+      });
+  
+      // Show Popup on Page Load
+      window.onload = function () {
+        document.body.classList.add('blur-active');
+        setTimeout(closePopup, 10000); // Auto Close after 10 seconds
+      };
