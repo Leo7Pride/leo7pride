@@ -12,6 +12,7 @@
     background-color: transparent;
     padding: 1rem 0;
     z-index: 999;
+    margin: 0px;
 }
 
 .navbar img{
@@ -51,6 +52,21 @@
 #navbar-show-btn:hover {
     opacity: 1;
 }
+
+
+/* slogan */
+.slogan p {
+    font-size: 24px; /* Adjust font size as per your design */
+    font-weight: bold; /* Makes the text bold */
+    color: #2E8A99; /* Text color */
+    text-align: center; /* Center the text */
+    white-space: nowrap; /* Prevent text from breaking into a new line */
+    /* text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                 0 0 20px rgba(255, 255, 255, 0.5), 
+                 0 0 30px rgba(255, 255, 255, 0.3); Glossy effect */
+    margin-left: 285px;
+}
+
 
 /* navbar side menu */
 #navbar-collapse {
@@ -1782,3 +1798,117 @@ header.header-sm {
 
 
 /* GTT.HTML */
+/* Tour Details Section Styles */
+/* .tour-details {
+    max-width: 800px; /* Limit the width of the section */
+    margin: 20px auto; /* Center the section */
+    padding: 20px; /* Add padding */
+    background-color: #ffffff; /* White background for the section */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+} */
+
+.tour-details h2 {
+    color: #333; /* Dark color for headings */
+    margin-bottom: 15px; /* Space below the heading */
+    font-size: 24px; /* Font size for main headings */
+    border-bottom: 2px solid #007BFF; /* Blue underline */
+    padding-bottom: 10px; /* Space below the border */
+}
+
+.tour-details h3 {
+    color: #007BFF; /* Blue color for subheadings */
+    margin-top: 20px; /* Space above subheadings */
+    font-size: 20px; /* Font size for subheadings */
+}
+
+.tour-details ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+.tour-details li {
+    position: relative; /* Position relative for icon placement */
+    padding-left: 30px; /* Space for the icon */
+    margin-bottom: 10px; /* Space below each list item */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.tour-details li:hover {
+    transform: translateX(5px); /* Slight move to the right on hover */
+}
+
+.tour-details li:before {
+    content: "\f00c"; /* Font Awesome check icon */
+    font-family: "Font Awesome 5 Free"; /* Font Awesome font */
+    font-weight: 900; /* Bold weight for the icon */
+    position: absolute; /* Position the icon absolutely */
+    left: 0; /* Align to the left */
+    color: #007BFF; /* Blue color for the icon */
+}
+
+/* Booking Details Section Styles */
+.booking-details {
+    margin-top: 40px; /* Space above the booking details */
+    padding: 20px; /* Padding for the booking details */
+    background: #f1f1f1; /* Light gray background */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.booking-details p {
+    margin: 10px 0; /* Space above and below paragraphs */
+}
+
+.booking-details strong {
+    color: #333; /* Dark color for strong text */
+}
+
+
+/* II */
+/* Tour Details Section */
+.timeline {
+    position: relative;
+    padding-left: 40px;
+    margin-top: 20px;
+}
+
+.milestone {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.milestone::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: #ccc;
+}
+
+.icon {
+    position: absolute;
+    left: -30px;
+    top: 5px;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    animation: blink 1.5s infinite alternate;
+}
+
+.details {
+    margin-left: 30px;
+}
+
+@keyframes blink {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
