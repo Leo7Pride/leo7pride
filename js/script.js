@@ -340,45 +340,32 @@ document.addEventListener("DOMContentLoaded", function () {
 // About us sliding
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    function animateOnScroll() {
-        let elements = document.querySelectorAll(".hidden");
-        let windowHeight = window.innerHeight;
 
-        elements.forEach((element) => {
-            let position = element.getBoundingClientRect().top;
+document.addEventListener("DOMContentLoaded", function() {
+    const hiddenElements = document.querySelectorAll('.hidden');
 
-            if (position < windowHeight - 100) {
-                element.classList.add("active");
-            } else {
-                element.classList.remove("active");
+    const observerOptions = {
+        root: null, // Use the viewport as the root
+        rootMargin: '0px',
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    };
+
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active'); // Add active class
+                observer.unobserve(entry.target); // Stop observing the element
             }
         });
-    }
+    };
 
-    window.addEventListener("scroll", animateOnScroll);
-    animateOnScroll(); // Run immediately to check for elements in view
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    hiddenElements.forEach(element => {
+        observer.observe(element); // Start observing each hidden element
+    });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    function animateOnScroll() {
-        let elements = document.querySelectorAll(".hidden");
-        let windowHeight = window.innerHeight;
-
-        elements.forEach((element) => {
-            let position = element.getBoundingClientRect().top;
-
-            if (position < windowHeight - 100) {
-                element.classList.add("active");
-            } else {
-                element.classList.remove("active");
-            }
-        });
-    }
-
-    window.addEventListener("scroll", animateOnScroll);
-    animateOnScroll(); // Run once on page load
-});
 
 
 
