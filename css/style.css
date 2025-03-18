@@ -1363,10 +1363,7 @@ header.header-sm {
 }
 
 /* Scroll Animation */
-.hidden {
-    opacity: 0;
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
+
 
 .left-slide {
     transform: translateX(-100px);
