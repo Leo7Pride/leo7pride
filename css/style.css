@@ -1310,7 +1310,7 @@ header.header-sm {
 /* Blog Ends Here */
 
 /* ### ABOUT PAGE ### */
-/* about */
+/* About */
 .about-right .text {
     margin-bottom: 1rem;
 }
@@ -1319,9 +1319,8 @@ header.header-sm {
     margin-bottom: 2.5rem;
 }
 
-
-/* Vision  */
-.vision-mission-row {
+/* Vision & Mission */
+.vision-mission-row, .mission-row {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -1329,98 +1328,120 @@ header.header-sm {
 }
 
 /* Text on the left */
-.vision-mission-text {
+.vision-mission-text, .mission-text {
     flex: 1;
     text-align: left;
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 /* Image on the right */
-.vision-mission-image {
+.vision-mission-image, .mission-image {
     flex: 1;
     display: flex;
     justify-content: center;
 }
 
 /* Ensure image is not full-width on larger screens */
-.vision-mission-image img {
+.vision-mission-image img, .mission-image img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
 }
 
 /* Responsive - Stack on smaller screens */
-@media (max-width: 768px) {
-    .vision-mission-row {
-        flex-direction: column;
+@media (max-width: 1024px) {
+    .vision-mission-row, .mission-row {
+        flex-direction: column; /* Stack vertically */
+        align-items: center;
         text-align: center;
+        gap: 1.5rem; /* Add spacing for better alignment */
     }
 
-    .vision-mission-text,
-    .vision-mission-image {
+    .vision-mission-text, .mission-text {
         flex: none;
+        width: 90%; /* Center the text */
+        margin: 0 auto;
+    }
+
+    .vision-mission-image, .mission-image {
+        flex: none;
+        width: 100%; /* Full width for images */
+        display: flex;
+        justify-content: center; /* Center align horizontally */
+        align-items: center; /* Center align vertically */
+    }
+
+    .vision-mission-image img, .mission-image img {
+        max-width: 75%; /* Adjust for better fit */
+        height: auto;
+        display: block;
+        margin: auto; /* Center images */
+    }
+}
+
+/* Even smaller screens - Ensure perfect centering */
+@media (max-width: 600px) {
+    .vision-mission-text, .mission-text {
+        font-size: 1rem; /* Adjust font size */
+        padding: 0 1rem; /* Add some padding */
+    }
+
+    .vision-mission-image, .mission-image {
         width: 100%;
+        display: flex;
+        justify-content: center; /* Ensures the image is horizontally centered */
+        align-items: center; /* Ensures vertical centering */
+    }
+
+    .vision-mission-image img, .mission-image img {
+        max-width: 85%; /* Slightly increase image size */
+        height: auto;
+        display: block;
+        margin: auto; /* Center images in both directions */
+    }
+}
+
+/* Extra Small Screens (Below 400px) */
+@media (max-width: 400px) {
+    .vision-mission-text, .mission-text {
+        font-size: 0.9rem; /* Reduce font size for readability */
+        padding: 0 0.5rem; /* Adjust padding */
+    }
+
+    .vision-mission-image img, .mission-image img {
+        max-width: 90%; /* Increase image size slightly */
     }
 }
 
 /* Scroll Animation */
-
-
-.left-slide {
-    transform: translateX(-100px);
-}
-
-.right-slide {
-    transform: translateX(100px);
-}
-
-.active {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-
-/* Mission */
-
-.mission-row {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    opacity: 1;
-    /* Ensure it's visible by default */
-    transform: translateY(0);
-    /* Reset */
-}
-
-.mission-image,
-.mission-text {
-    flex: 1;
-}
-
-.mission-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-/* Animation states */
 .hidden {
     opacity: 0;
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    visibility: hidden;
+    transform: translateY(50px); 
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
+/* Left and Right Sliding Effects */
 .left-slide {
-    transform: translateX(-100px);
+    transform: translateX(-50px); /* Smooth left slide */
 }
 
 .right-slide {
-    transform: translateX(100px);
+    transform: translateX(50px); /* Smooth right slide */
 }
 
+/* Active Class - Makes Elements Visible */
 .active {
     opacity: 1;
-    transform: translateX(0);
+    visibility: visible;
+    transform: translateX(0) translateY(0);
 }
 
+/* Ensure content is visible by default */
+.vision-mission-text, .mission-text, .vision-mission-image, .mission-image {
+    opacity: 1;
+    visibility: visible;
+}
 
 /* facts */
 #facts {
