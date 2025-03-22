@@ -457,6 +457,30 @@ document.getElementById("contact-form").addEventListener("submit", function(even
 
 
 
+//   email sending via EMAILJS
+function sendMail() {
+    let parms = {
+        name: document.getElementById("name").value,
+        contact_no: document.getElementById("contact_no").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value,
+    };
+
+    emailjs.send("service_tdmhzkv", "template_cv0yhrh", parms)
+        .then(function (response) {
+            alert("Email Sent Successfully!");
+            document.getElementById("contact-form").reset(); // Reset form after sending
+        })
+        .catch(function (error) {
+            alert("Failed to send email. Please try again.");
+            console.error("Error:", error);
+        });
+}
+
+
+
+
+
 // Js for explore button when clickied pop up form to be displayed  .
 // Function to open the popup
 function openEnquiryPopup() {
