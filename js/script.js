@@ -453,3 +453,41 @@ document.getElementById("contact-form").addEventListener("submit", function(even
         document.body.classList.add('blur-active');
         setTimeout(closePopup, 10000); // Auto Close after 10 seconds
       };
+
+
+
+
+// Js for explore button when clickied pop up form to be displayed  .
+// Function to open the popup
+function openEnquiryPopup() {
+    document.getElementById("enquiry-popup").style.display = "flex";
+}
+
+// Function to close the popup
+function closeEnquiryPopup() {
+    document.getElementById("enquiry-popup").style.display = "none";
+}
+
+// Function to send inquiry email separately
+function sendEnquiryMail(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    let enquiryData = {
+        name: document.getElementById("enquiry-name").value,
+        email: document.getElementById("enquiry-email").value,
+        contact_no: document.getElementById("enquiry-contact").value,
+        message: document.getElementById("enquiry-message").value,
+    };
+
+    emailjs.send("service_tdmhzkv", "template_cv0yhrh", enquiryData)
+        .then(function (response) {
+            alert("Inquiry Sent Successfully!");
+            document.getElementById("enquiry-form").reset(); // Reset form after sending
+            closeEnquiryPopup(); // Close the popup after sending
+        })
+        .catch(function (error) {
+            alert("Failed to send inquiry. Please try again.");
+            console.error("Error:", error);
+        });
+}
+
