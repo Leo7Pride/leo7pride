@@ -20,16 +20,18 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    </script>
-    <script type="text/javascript">
-        // (function () {
-        //     emailjs.init({
-        //         publicKey: "_rr256Ydz2sGZEWT1",
-        //     });
-        // })();
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "_rr256Ydz2sGZEWT1",
+            });
+        })();
+    </script>
 </head>
 
 <body>
@@ -96,6 +98,8 @@
         </div>
     </header>
     <!-- Header -->
+
+
     <!-- Contact Section -->
     <section id="contact" class="py-4">
         <div class="container">
@@ -105,21 +109,39 @@
             </div>
 
             <div class="contact-row">
-                <div class="contact-left">
-                    <form class="contact-form" id="contact-form" action="https://formsubmit.co/chhatrapaljaiswal1997@gmail.com"
-                        method="POST">
+                <!-- <div class="contact-left">
+                    <form class="contact-form" id="contact-form"
+                        action="https://formsubmit.co/chhatrapaljaiswal1997@gmail.com" method="POST">
                         <input type="hidden" name="_captcha" value="false">
-                        <!-- <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html"> -->
+                        <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
 
-                        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-                        <textarea rows="4" name="message" class="form-control" placeholder="Your Message"
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Your Email"
+                            required>
+                        <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject"
+                            required>
+                        <textarea rows="4" name="message" id="message" class="form-control" placeholder="Your Message"
                             style="resize: none;" required></textarea>
 
-                        <button type="submit" class="btn">Send Message</button>
+                        <button type="submit" class="btn" onchange="sendMail()">Send Message</button>
                         <p id="status-message"></p>
                     </form>
-                </div>
+                </div> -->
+
+
+                <!-- Email JS -->
+                <form class="contact-form" id="contact-form">
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
+                    <input type="number" name="contact no" id="contact_no" class="form-control" placeholder="Your Contact Number" required>
+                    <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject" required>
+                    <textarea rows="4" name="message" id="message" class="form-control" placeholder="Your Message"
+                        style="resize: none;" required></textarea>
+                
+                    <button type="submit" class="btn" onclick="sendMail()">Send Message</button>
+                    
+                </form>
+                
+                 <!-- email js end -->
 
 
 
@@ -221,13 +243,13 @@
                 </ul>
             </div>
 
-            <div class="subscribe-form footer-item">
+            <!-- <div class="subscribe-form footer-item">
                 <h2>Subscribe for Newsletter!</h2>
                 <form class="flex">
                     <input type="email" placeholder="Enter Email" class="form-control">
                     <input type="submit" class="btn" value="Subscribe">
                 </form>
-            </div>
+            </div> -->
         </div>
     </footer>
     <!-- end of footer -->
